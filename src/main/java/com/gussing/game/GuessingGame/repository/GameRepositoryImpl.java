@@ -1,6 +1,6 @@
 package com.gussing.game.GuessingGame.repository;
 
-import com.gussing.game.GuessingGame.model.Game;
+import com.gussing.game.GuessingGame.entity.Game;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
@@ -16,7 +16,11 @@ public class GameRepositoryImpl implements GameRepository{
 
     @Override
     public List<Game> getAllGames() {
-        String query = "Select * from game;";
+        String query = "SELECT \n" +
+                "    game_id, \n" +
+                "    IF(game_status = 'In Progress', NULL, game_answer),\n" +
+                "    game_status\n" +
+                "FROM game;";
         return (List<Game>) em.createNativeQuery(query).getResultList();
     }
 

@@ -1,4 +1,4 @@
-package com.gussing.game.GuessingGame.model;
+package com.gussing.game.GuessingGame.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -6,7 +6,6 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import java.sql.Timestamp;
-import java.util.List;
 
 @Entity
 @Table(name = "round")

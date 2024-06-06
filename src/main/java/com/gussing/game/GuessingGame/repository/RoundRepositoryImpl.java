@@ -1,6 +1,6 @@
 package com.gussing.game.GuessingGame.repository;
 
-import com.gussing.game.GuessingGame.model.Round;
+import com.gussing.game.GuessingGame.entity.Round;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;

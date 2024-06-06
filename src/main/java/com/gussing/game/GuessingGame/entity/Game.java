@@ -1,4 +1,4 @@
-package com.gussing.game.GuessingGame.model;
+package com.gussing.game.GuessingGame.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -13,6 +13,9 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "game_id", nullable = false)
     private Integer gameId;
+
+    @Column(name = "game_answer")
+    private Integer gameAnswer;
 
     @Column(name = "game_status")
     private String gameStatus;
@@ -30,6 +33,14 @@ public class Game {
 
     public void setGameId(Integer gameId) {
         this.gameId = gameId;
+    }
+
+    public Integer getGameAnswer() {
+        return gameAnswer;
+    }
+
+    public void setGameAnswer(Integer gameAnswer) {
+        this.gameAnswer = gameAnswer;
     }
 
     public String getGameStatus() {

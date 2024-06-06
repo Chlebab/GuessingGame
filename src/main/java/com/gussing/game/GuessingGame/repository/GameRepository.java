@@ -1,6 +1,6 @@
 package com.gussing.game.GuessingGame.repository;
 
-import com.gussing.game.GuessingGame.model.Game;
+import com.gussing.game.GuessingGame.entity.Game;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
