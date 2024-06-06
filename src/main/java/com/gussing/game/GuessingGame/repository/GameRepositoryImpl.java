@@ -26,7 +26,24 @@ public class GameRepositoryImpl implements GameRepository{
 
     @Override
     public Game getGameById(int id) {
-        return em.find(Game.class, id);
+        String query = "SELECT \n" +
+                "    game_id, \n" +
+                "    IF(game_status = 'In Progress', NULL, game_answer),\n" +
+                "    game_status\n" +
+                "FROM game WHERE game_id = :id;";
+        List<Object[]> results = em.createNativeQuery(query)
+                .setParameter("id", id)
+                .getResultList();
+
+        if (results.isEmpty()) {
+            return null;
+        }
+        Object[] result = results.get(0);
+        Game game = new Game();
+        game.setGameId((Integer) result[0]);
+        game.setGameAnswer((Integer) result[1]);
+        game.setGameStatus((String) result[2]);
+        return game;
     }
 
     @Override

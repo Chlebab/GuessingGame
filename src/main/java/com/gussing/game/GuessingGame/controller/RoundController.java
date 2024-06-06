@@ -90,6 +90,8 @@ public class RoundController {
         long currentTimeMills = System.currentTimeMillis();
         round.setRoundTime(new Timestamp(currentTimeMills));
 
+        round.setGame(game);
+
         roundRepository.addRound(round);
 
         return new ResponseEntity<Round>(round, HttpStatus.OK);
